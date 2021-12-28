@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "./App.module.css";
 import VideoDetail from "./components/VideoDetail/VideoDetail";
 import VideoList from "./components/VideoList/VideoList";
@@ -12,24 +12,35 @@ function App({ youtube }) {
     setSelectedVideo(video);
   };
 
-  const handleSearch = (keyword) => {
+  const searchVideoList = useCallback(
+    (keyword) => {
+      setSelectedVideo(null);
+      youtube
+        .search(keyword) //
+        .then((videos) => setVideos(videos));
+    },
+    [youtube]
+  );
+
+  const searchMostPopularList = useCallback(() => {
+    setSelectedVideo(null);
     youtube
-      .search(keyword) //
-      .then((videos) => {
-        setVideos(videos);
-        setSelectedVideo(null);
-      });
-  };
+      .mostPopular() //
+      .then((videos) => setVideos(videos));
+  }, [youtube]);
 
   useEffect(() => {
     youtube
       .mostPopular() //
       .then((videos) => setVideos(videos));
-  }, []);
+  }, [youtube]);
 
   return (
     <div className={styles.app}>
-      <VideoSearch onSearch={handleSearch} />
+      <VideoSearch
+        onLogoClick={searchMostPopularList}
+        onSearch={searchVideoList}
+      />
       <section className={styles.content}>
         {selectedVideo && (
           <div className={styles.detail}>
