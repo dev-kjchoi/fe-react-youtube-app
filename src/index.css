@@ -1,0 +1,41 @@
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h4 {
+  font-size: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h5 {
+  font-size: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}

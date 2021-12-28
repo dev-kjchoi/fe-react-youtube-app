@@ -2,8 +2,13 @@ import React from "react";
 import styles from "./VideoItem.module.css";
 
 const VideoItem = (props) => {
+  const displayType = props.display === "list" ? styles.list : styles.grid;
+
   return (
-    <li className={styles.container}>
+    <li
+      className={`${styles.container} ${displayType}`}
+      onClick={() => props.onClick(props.video)}
+    >
       <div className={styles.video}>
         <img
           className={styles.thumbnail}

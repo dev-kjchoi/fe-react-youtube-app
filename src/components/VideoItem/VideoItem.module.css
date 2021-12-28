@@ -1,11 +1,21 @@
 .container {
-  width: 50%;
+  height: 120px;
   padding: 5px;
+  box-sizing: border-box;
+}
+
+.container.grid {
+  width: 50%;
+}
+
+.container.list {
+  width: 100%;
 }
 
 .video {
   display: flex;
   align-items: center;
+  height: 100%;
   border: 1px solid lightgray;
   box-shadow: 3px 3px 5px 0px rgba(191, 191, 191, 0.53);
   cursor: pointer;
@@ -17,7 +27,6 @@
 }
 
 .thumbnail {
-  width: 30%;
   height: 100%;
 }
 
